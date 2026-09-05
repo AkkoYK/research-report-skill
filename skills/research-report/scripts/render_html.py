@@ -18,7 +18,11 @@ LAYOUT_CHECK = r"""() => {
       return {number: index + 1};
     }
     const bounds = content.getBoundingClientRect();
+    const header = paper.querySelector('.pdf-header');
+    // Font metric boxes can extend above their line box without crossing the header.
+    const top = header ? header.getBoundingClientRect().bottom + 8 : bounds.top;
     const bottom = footer.getBoundingClientRect().top - 8;
+    let metricOverhang = 0;
     if (!content.textContent.trim() && !content.querySelector('img,svg'))
       problems.push({page: index + 1, issue: 'empty-content'});
     const elements = content.querySelectorAll('h1,h2,h3,p,li,td,th,caption,figcaption,pre,svg text');
@@ -26,15 +30,18 @@ LAYOUT_CHECK = r"""() => {
       const range = document.createRange();
       range.selectNodeContents(element);
       const box = range.getBoundingClientRect();
+      metricOverhang = Math.max(metricOverhang, bounds.top - box.top);
       if (box.width && (box.left < bounds.left - 1 || box.right > bounds.right + 1 ||
-          box.top < bounds.top - 1 || box.bottom > Math.min(bounds.bottom, bottom) + 1)) {
-        problems.push({page: index + 1, issue: 'text-overflow', text: element.textContent.slice(0, 70)});
+          box.top < top - 1 || box.bottom > Math.min(bounds.bottom, bottom) + 1)) {
+        problems.push({page: index + 1, issue: 'text-overflow', text: element.textContent.slice(0, 70),
+          box: {top: box.top, right: box.right, bottom: box.bottom, left: box.left},
+          limits: {top, right: bounds.right, bottom: Math.min(bounds.bottom, bottom), left: bounds.left}});
       }
     }
     for (const element of content.querySelectorAll('table,figure,img,svg,pre')) {
       const box = element.getBoundingClientRect();
       if (box.left < bounds.left - 1 || box.right > bounds.right + 1 ||
-          box.bottom > Math.min(bounds.bottom, bottom) + 1)
+          box.top < top - 1 || box.bottom > Math.min(bounds.bottom, bottom) + 1)
         problems.push({page: index + 1, issue: 'element-overflow', element: element.tagName});
     }
     for (const img of content.querySelectorAll('img')) {
@@ -56,7 +63,7 @@ LAYOUT_CHECK = r"""() => {
     return {number: index + 1, width: paper.getBoundingClientRect().width,
       height: paper.getBoundingClientRect().height,
       usedHeight: last ? last.getBoundingClientRect().bottom - bounds.top : 0,
-      availableHeight: bounds.height};
+      availableHeight: bounds.height, fontMetricTopOverhang: metricOverhang};
   });
   return {pages, problems};
 }"""

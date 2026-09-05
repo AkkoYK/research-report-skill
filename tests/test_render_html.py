@@ -134,6 +134,12 @@ class BrowserTests(unittest.TestCase):
         self.assertTrue(any(p['issue'] == 'table-vertical-rules' for p in result['problems']))
         self.assertFalse((output / 'report.pdf').exists())
 
+    def test_heading_colliding_with_header_is_rejected(self):
+        self.change('</head>', '<style>h1 {transform: translateY(-55px)}</style></head>')
+        result, output = self.run_render()
+        self.assertTrue(any(p['issue'] == 'text-overflow' for p in result['problems']))
+        self.assertFalse((output / 'report.pdf').exists())
+
 
 if __name__ == '__main__':
     unittest.main()

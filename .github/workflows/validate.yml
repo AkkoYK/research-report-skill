@@ -27,3 +27,13 @@ jobs:
       - run: python -m unittest discover -s tests -v
         env:
           REPORT_RENDER_TESTS: '1'
+      - name: Render Linux preview
+        if: always()
+        run: python skills/research-report/scripts/render_html.py skills/research-report/assets/html/example.html --output-dir build/ci-preview
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: linux-report-preview
+          path: build/ci-preview/
+          if-no-files-found: warn
+          retention-days: 7
