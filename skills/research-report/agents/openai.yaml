@@ -1,0 +1,4 @@
+interface:
+  display_name: "研究与项目报告"
+  short_description: "生成通用研究与项目报告，统一中文排版、三线表、引用和逐页验收"
+  default_prompt: "请使用 $research-report，根据我提供的材料和接收方要求，编写并排版一份有依据、可核验的正式报告。"

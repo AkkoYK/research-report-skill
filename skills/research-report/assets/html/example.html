@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>研究与项目报告排版示例</title>
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+  <section class="pdf-page">
+    <header class="pdf-header">研究与项目报告排版示例 / 方法与结果</header>
+    <main class="page-content">
+      <h1>资料整理与核验报告</h1>
+      <div class="document-meta">版式演示 · 虚构资料与数据</div>
+
+      <h2>1. 摘要与范围</h2>
+      <p>本示例演示如何在书面报告中组织摘要、方法和结果。正文、表格和图形使用统一的字体与配色，读者可以从简要结论继续查看数据和解释。</p>
+      <p>表 1 使用三类虚构资料演示核验结果：共 100 份资料，其中 94 份包含全部必填信息，完整率为 <strong>94.00%</strong>。这一数值说明信息是否齐全；资料内容的准确性需要另行核查。</p>
+
+      <table class="keep-together">
+        <caption>表 1　资料完整性核验结果（示例数据）</caption>
+        <colgroup><col style="width:19%"><col style="width:27%"><col style="width:29%"><col style="width:25%"></colgroup>
+        <thead><tr><th scope="col">类别</th><th scope="col" class="number">资料数量 / 份</th><th scope="col" class="number">信息完整 / 份</th><th scope="col" class="number">完整率 / %</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td class="number">25</td><td class="number">24</td><td class="number">96.00</td></tr>
+          <tr><td>B</td><td class="number">40</td><td class="number">38</td><td class="number">95.00</td></tr>
+          <tr><td>C</td><td class="number">35</td><td class="number">32</td><td class="number">91.43</td></tr>
+        </tbody>
+      </table>
+      <p class="table-note">注：资料与数字均为虚构。完整率 = 信息完整份数 / 资料份数 × 100%。总体完整率按 94 / 100 计算；各类别比例保留两位小数。</p>
+
+      <h2>2. 方法说明</h2>
+      <p>方法部分交代资料如何进入分析，以及采用了哪些判断标准。说明收集范围、核验步骤和结果记录方式，有助于读者理解表格中每个数值的含义。</p>
+      <h3>2.1 明确核验规则</h3>
+      <p>正式报告中应写明资料日期、纳入范围、必填信息和缺失值处理方式。同一张表中的资料采用一致规则，分类依据与例外情况放在结果旁说明。</p>
+      <h3>2.2 让结论能够对应证据</h3>
+      <p>重要结论给出图表或资料入口。正文说明与判断直接有关的依据，完整清单、逐项记录和补充说明可放在附录。标题直接说明内容，段落围绕一个问题展开。</p>
+
+      <h2>3. 版式要点</h2>
+      <p>本页使用 10.5 pt 正文、1.75 倍行距和三线表。主标题、章节标题、图表说明各有固定层级，左右边界对齐。较长标题与表头优先通过调整文字和列宽处理。</p>
+    </main>
+    <footer class="pdf-footer">1 / 2</footer>
+  </section>
+
+  <section class="pdf-page">
+    <header class="pdf-header">研究与项目报告排版示例 / 图形与资料组织</header>
+    <main class="page-content">
+      <h2>4. 图形与流程说明</h2>
+      <p>图 1 说明资料处理的先后顺序。图内字体、线条和配色与正文一致，箭头表示明确的流程关系。图形源文件可以单独导出，并在不同文档中调整使用尺寸。</p>
+      <figure>
+        <svg class="diagram" viewBox="0 0 668 146" role="img" aria-labelledby="diagram-title diagram-desc">
+          <title id="diagram-title">资料整理与核验流程</title>
+          <desc id="diagram-desc">三个步骤从左向右：收集资料，统一核验，汇总结果。</desc>
+          <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#68768b"></path></marker></defs>
+          <rect x="1" y="1" width="666" height="144" rx="6" fill="#fafbfe" stroke="#dfe4eb"></rect>
+          <rect x="20" y="32" width="184" height="82" rx="5" fill="#eef3fd" stroke="#2256b5"></rect>
+          <rect x="242" y="32" width="184" height="82" rx="5" fill="#edf8f6" stroke="#0e9c8a"></rect>
+          <rect x="464" y="32" width="184" height="82" rx="5" fill="#f7f8fa" stroke="#a4afbe"></rect>
+          <path class="connector" d="M204 73 H234" marker-end="url(#arrow)"></path>
+          <path class="connector" d="M426 73 H456" marker-end="url(#arrow)"></path>
+          <text x="112" y="66" text-anchor="middle" class="label">收集资料</text>
+          <text x="112" y="91" text-anchor="middle" class="detail">确定来源与纳入范围</text>
+          <text x="334" y="66" text-anchor="middle" class="label">统一核验</text>
+          <text x="334" y="91" text-anchor="middle" class="detail">检查必填项与重复项</text>
+          <text x="556" y="66" text-anchor="middle" class="label">汇总结果</text>
+          <text x="556" y="91" text-anchor="middle" class="detail">保留结果及原始索引</text>
+        </svg>
+        <figcaption>图 1　资料整理与核验流程（示意）</figcaption>
+      </figure>
+      <p class="figure-note">图形为本模板绘制的排版示例，表示逻辑顺序。图题置于图下，编号在正文中引用。</p>
+
+      <h2>5. 资料与依据</h2>
+      <p>读者需要知道结果如何得到，以及去哪里查看细节。短表可以集中说明这些信息，完整清单和原始资料可作为独立附件保存。</p>
+      <table class="keep-together">
+        <caption>表 2　正式报告应说明的资料信息</caption>
+        <colgroup><col style="width:25%"><col style="width:75%"></colgroup>
+        <thead><tr><th scope="col">信息</th><th scope="col">说明内容</th></tr></thead>
+        <tbody>
+          <tr><td>对象范围</td><td>资料来源、日期、纳入条件与分类依据。</td></tr>
+          <tr><td>核验规则</td><td>必填信息、重复资料及缺失值的处理方式。</td></tr>
+          <tr><td>统计口径</td><td>指标定义、分母、分组方式与小数位数。</td></tr>
+          <tr><td>查阅入口</td><td>资料编号、原始清单与对应附件的位置。</td></tr>
+        </tbody>
+      </table>
+
+      <h2>6. 文件导出</h2>
+      <p>修改正文后，重新检查每页的内容高度、表格换行和图内文字。导出 PDF 时使用 A4 页面与实际字体，重新打开保存后的文件，确认图表、页码、链接和书签。</p>
+      <p>本示例采用固定分页。添加内容时应同步调整页数与页脚；配套 CSS 保留溢出显示，便于在导出前发现内容超出页面的问题。</p>
+
+      <h2>参考资料与配套文件</h2>
+      <div class="references">
+        <p>[1] <a href="../../references/design-system.md">书面报告设计系统</a>：字体、页面与图表规范。</p>
+        <p>[2] <a href="report.css">report.css</a>：正文、标题、三线表、图题及 A4 打印样式。</p>
+      </div>
+    </main>
+    <footer class="pdf-footer">2 / 2</footer>
+  </section>
+</body>
+</html>

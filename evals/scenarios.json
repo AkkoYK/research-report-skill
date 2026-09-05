@@ -1,0 +1,53 @@
+{
+  "purpose": "人工评估技能的任务选择和行为；这些场景本身不是已通过的客户端测试记录。",
+  "cases": [
+    {
+      "id": "research-report",
+      "request": "根据访谈提纲、匿名记录和统计表，编写一份公共空间使用研究报告，交付 PDF 和正文源文件。",
+      "should_activate": true,
+      "expectations": ["按资料范围组织方法、发现和讨论", "保留来源与统计条件", "完成实际文件视觉检查"]
+    },
+    {
+      "id": "specified-template",
+      "request": "将项目总结整理成 DOCX。接收方要求宋体小四、1.5 倍行距、指定封面和五章目录，请按这些要求制作。",
+      "should_activate": true,
+      "expectations": ["优先遵守指定字体和结构", "使用可编辑的原生表格", "不强制套用默认 HTML 版式"]
+    },
+    {
+      "id": "review-only",
+      "request": "请只检查这份技术报告的内容和排版，列出问题，暂时不要修改。",
+      "should_activate": true,
+      "expectations": ["只读检查", "指出具体页面或内容位置", "不重写或重新导出文件"]
+    },
+    {
+      "id": "prose-only",
+      "request": "润色研究报告的讨论部分，让表达自然一些。保留所有数字、引用和现有排版。",
+      "should_activate": true,
+      "expectations": ["只调整文字表达", "保留数字、结论力度和引用", "无需启动浏览器或渲染 PDF"]
+    },
+    {
+      "id": "missing-evidence",
+      "request": "这项调查还没有实际结果，请先准备方法和版式草稿，并把待补资料单独列出。",
+      "should_activate": true,
+      "expectations": ["不把示例数据写成真实结论", "明确待补资料", "完成有材料支持的部分"]
+    },
+    {
+      "id": "readme-small-edit",
+      "request": "把 README 里的安装命令改成新包名，其他地方不动。",
+      "should_activate": false,
+      "expectations": ["不扩展成正式报告制作"]
+    },
+    {
+      "id": "slides-only",
+      "request": "把这些提纲制作成十页 16:9 演示幻灯片，不需要书面报告。",
+      "should_activate": false,
+      "expectations": ["使用适合演示材料的工作流程"]
+    },
+    {
+      "id": "alternate-font",
+      "request": "在 Linux 上生成中文研究报告，使用系统已有的思源黑体。",
+      "should_activate": true,
+      "expectations": ["遵守指定字体", "实际检查换行与分页", "不自动下载或分发专有字体"]
+    }
+  ]
+}
